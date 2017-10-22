@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
+import os, sys
+
+def main(opt):
+    if opt == "on":
+        os.system('cat srv/online.state > srv/current.state')
+        print('[+] Studio is On Air')
+    elif opt == "off":
+        os.system('cat srv/offline.state > srv/current.state')
+        print('[-] Studio is Off Air')
+    elif opt == "blank":
+        os.system('cat srv/blank.state > srv/current.state')
+        print('[ ] Studio On Air Lights are Blank')
+    elif opt == "exit" or opt == "quit":
+        raise SystemExit
+    else:
+        print("[!] Unrecognized option: " + opt)
+        print("[*] Available options:")
+        print("      on")
+        print("      off")
+        print("      blank")
+
+if __name__ == "__main__":
+    try:
+        main(sys.argv[1].lower())
+    except:
+        while True:
+            main(raw_input("On Air Ctrl > ").lower())

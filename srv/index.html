@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Studio Status Light</title>
+<script type="text/javascript">
+    function loadState(){
+       var xhttp = new XMLHttpRequest();
+       xhttp.onreadystatechange = function() {
+           if (this.readyState == 4 && this.status == 200) {
+               document.getElementById("content").innerHTML =
+               this.responseText;
+           }
+       };
+       xhttp.open("GET", "current.state", true);
+       xhttp.send(); 
+    }
+    setInterval(function() {
+        loadState()
+    }, 1500);
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="centerdiv" id="content">
+<h1 style="align: center;">Loading Status...</h1>
+<p style="align: center;"></p>
+</div>
+</body>
+</html>

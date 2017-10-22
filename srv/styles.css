@@ -1,0 +1,15 @@
+/*.centerdiv {
+    height: 90px;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}*/
+body {
+    background: #000000;
+    color: #ff0000;
+    font-size: 50px;
+}
